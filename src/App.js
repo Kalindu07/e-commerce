@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Mens from './components/Mens'; // Assuming Menspage.js is in the same directory
+import Womens from './components/Womens'; // Assuming Womenspage.js is in the same directory
+import Kids from './components/Kids';
 import './App.css';
 import Footer from './components/Footer';
 
@@ -24,9 +27,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="mens" element={<div>Mens Page</div>} />
-            <Route path="womens" element={<div>Womens Page</div>} />
-            <Route path="kids" element={<div>Kids Page</div>} />
+            <Route path="mens" element={<Mens />} />
+            <Route path="womens" element={<Womens />} />
+            <Route path="kids" element={<Kids />} />
             <Route path="about" element={<div>About Page</div>} />
             <Route path="contact" element={<div>Contact Page</div>} />
           </Route>
