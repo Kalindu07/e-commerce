@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white p-4 mt-auto">
+    <footer className="bg-gray-950 text-white p-4 mt-auto">
       <div className="container mx-auto text-center">
         <p>&copy; 2024 MADOC. All rights reserved.</p>
       </div>
