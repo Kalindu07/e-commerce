@@ -1,25 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+const app = require("./app.js");
+const connectDB = require("./config/db.js");
 
-// Load environment variables
-dotenv.config();
-
-const app = express();
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-// MongoDB Connection
+// Connect to MongoDB
 connectDB();
 
-// Routes
-app.get('/', (req, res) => {
-  res.send('Welcome to MADOC Shop API');
-});
 
 // Start server
 const PORT = process.env.PORT || 5000;
