@@ -17,9 +17,34 @@ const RegisterPage = () => {
             [name]: value
         }));
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const { username, email, password, confirmPassword, userRole } = formData;
+
+        const form = new FormData();
+        form.append("username", username);
+        form.append("email", email);
+        form.append("password", password
+        );
+
+        try {
+            const response = await fetch("http://localhost:5000/api/register", {
+                method: "POST",
+                body: form,
+            });
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Registration successful:", data);
+                // Redirect or show success message
+            } else {
+                console.error("Registration failed:", data);
+                setError(data.message || "Registration failed");
+            }
+        }
+        catch (error) {
+            console.error("Error during registration:", error);
+            setError("An error occurred during registration. Please try again.");
+        }
 
         // Basic validation
         if (!username || !email || !password || !confirmPassword) {
