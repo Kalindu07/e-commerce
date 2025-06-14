@@ -7,6 +7,8 @@ const Navbar = () => {
     // This should be replaced with your actual auth state management
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
+
     return (
         <nav className="flex justify-between items-center bg-gray-950 p-4">
             <div className="text-white text-2xl font-extrabold font-mono">MADOC</div>
@@ -36,22 +38,24 @@ const Navbar = () => {
                 ) : (
                     // Show login/register buttons when not logged in
                     <div className="flex gap-2">
-                        <Button 
-                            variant="outline" 
-                            className="text-white border-white hover:bg-gray-800"
-                            onClick={() => setIsLoggedIn(true)} // This should be replaced with actual login logic
-                        >
-                            <LogIn className="h-4 w-4 mr-2" />
-                            Login
-                        </Button>
-                        <Button 
-                            variant="outline" 
-                            className="text-white border-white hover:bg-gray-800"
-                            onClick={() => setIsLoggedIn(true)} // This should be replaced with actual register logic
-                        >
-                            <UserPlus className="h-4 w-4 mr-2" />
-                            Register
-                        </Button>
+                        <Link to="/login">
+                            <Button 
+                                variant="outline" 
+                                className="text-white border-white hover:bg-gray-800"
+                            >
+                                <LogIn className="h-4 w-4 mr-2" />
+                                Login
+                            </Button>
+                        </Link>
+                        <Link to="/register">
+                            <Button 
+                                variant="outline" 
+                                className="text-white border-white hover:bg-gray-800"
+                            >
+                                <UserPlus className="h-4 w-4 mr-2" />
+                                Register
+                            </Button>
+                        </Link>
                     </div>
                 )}
             </div>

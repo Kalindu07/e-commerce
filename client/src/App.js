@@ -1,42 +1,31 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Mens from './components/Mens'; // Assuming Menspage.js is in the same directory
-import Womens from './components/Womens'; // Assuming Womenspage.js is in the same directory
-import Kids from './components/Kids';
-import './App.css';
-import Footer from './components/Footer';
-
-const Layout = () => (
-  <>
-    <header className="sticky inset-x-0 top-0 z-10 shadow-md backdrop-blur-md">
-      <Navbar />
-    </header>
-    <main>
-      <Outlet />
-    </main>
-    <Footer />
-  </>
-);
+import LogginPage from './components/LogginPage';
+import RegisterPage from './components/Registerpage';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="mens" element={<Mens />} />
-            <Route path="womens" element={<Womens />} />
-            <Route path="kids" element={<Kids />} />
-            <Route path="about" element={<div>About Page</div>} />
-            <Route path="contact" element={<div>Contact Page</div>} />
-          </Route>
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <div className="min-h-screen flex flex-col">
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/login" element={<LogginPage />} />
+                        <Route path="/register" element={<RegisterPage />} />
+                        <Route path="/mens" element={<div>Mens Page</div>} />
+                        <Route path="/womens" element={<div>Womens Page</div>} />
+                        <Route path="/kids" element={<div>Kids Page</div>} />
+                        <Route path="/cart" element={<div>Cart Page</div>} />
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </Provider>
+    );
 }
 
 export default App;
