@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb+srv://kalindulakshanhh:fRiYeXChwtVWqvVv@cluster0.lwnfoeb.mongodb.net/job-portal?retryWrites=true&w=majority");
-        console.log('MongoDB connected successfully');
+        const conn = await mongoose.connect('mongodb+srv://kalindulakshanhh:fRiYeXChwtVWqvVv@cluster0.lwnfoeb.mongodb.net/MADOC?retryWrites=true&w=majority', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.error('MongoDB connection failed:', error.message);
-        process.exit(1); // Exit process with failure
+        console.error(`Error: ${error.message}`);
+        process.exit(1);
     }
 };
+
 module.exports = connectDB;

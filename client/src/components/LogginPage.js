@@ -43,6 +43,7 @@ const LogginPage = () => {
             }
         } catch (err) {
             dispatch(loginFailure(err.response?.data?.message || "An error occurred"));
+            console.error("Login error:", err);
         } finally {
             setIsLoading(false);
         }
