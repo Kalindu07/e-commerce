@@ -6,6 +6,10 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import LogginPage from './components/LogginPage';
 import RegisterPage from './components/Registerpage';
+import MensPage from './components/Mens';
+import WomensPage from '/components/Womens';
+import KidsPage from '/components/Kids';
+import Cart from '/components/Cart';
 
 function App() {
     return (
@@ -17,10 +21,10 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<LogginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
-                        <Route path="/mens" element={<div>Mens Page</div>} />
-                        <Route path="/womens" element={<div>Womens Page</div>} />
-                        <Route path="/kids" element={<div>Kids Page</div>} />
-                        <Route path="/cart" element={<div>Cart Page</div>} />
+                        <Route path="/mens" element={<MensPage />} />
+                        <Route path="/womens" element={<WomensPage />} />
+                        <Route path="/kids" element={<KidsPage />} />
+                        <Route path="/cart" element={<Cart />} />
                     </Routes>
                 </div>
             </BrowserRouter>
